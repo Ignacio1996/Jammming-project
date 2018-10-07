@@ -44,13 +44,15 @@ class App extends Component {
     })
   }
 
-  
-  removeTrack(track){
-    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
-      return;
-    }
-  }
 
+  removeTrack(track){
+    let tracks = this.state.platlistTracks;
+    tracks = tracks.filter(currentTrack => currentTrack.id != track.id);
+    this.setState({
+      playlistTracks: tracks
+    })
+
+  }
 
   render() {
     return (
