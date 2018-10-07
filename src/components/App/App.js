@@ -17,9 +17,20 @@ class App extends Component {
           id: 1
 
         }
+      ],
+      playlistName: 'Running',
+      playlistTracks:[
+        {
+          name: "Under the Bridge",
+          artist: "Red Hot Chilli Peppers",
+          album: "Blood, Sugar",
+          id: 2
+        }
       ]
     }
   }
+
+
   render() {
     return (
       <div>
@@ -28,7 +39,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults}/>
-            <Playlist/>
+            <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
           </div>
         </div>
       </div>
