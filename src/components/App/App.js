@@ -4,7 +4,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
 
-
+//Stage 2
 class App extends Component {
   render() {
     return (
