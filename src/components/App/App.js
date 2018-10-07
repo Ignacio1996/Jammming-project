@@ -28,6 +28,27 @@ class App extends Component {
         }
       ]
     }
+
+    this.addTrack = this.addTrack.bind(this);
+  }
+
+  addTrack(track){
+    // Checks if the track is in the playlist before adding it
+    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
+      return;
+    }
+    // Adds the track to the playlist
+    var newPlaylist = [...this.state.playlistTracks, track];
+    this.setState({
+      playlistTracks: newPlaylist
+    })
+  }
+
+  
+  removeTrack(track){
+    if(this.state.playlistTracks.find(savedTrack => savedTrack.id === track.id)){
+      return;
+    }
   }
 
 
@@ -38,7 +59,7 @@ class App extends Component {
         <div class="App">
           <SearchBar />
           <div className="App-playlist">
-            <SearchResults searchResults={this.state.searchResults}/>
+            <SearchResults onAdd={this.addTrack} searchResults={this.state.searchResults}/>
             <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
           </div>
         </div>
