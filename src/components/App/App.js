@@ -45,9 +45,10 @@ class App extends Component {
     })
   }
 
-
+  // removes playlist track
   removeTrack(track){
-    let tracks = this.state.playlistTracks;
+    let tracks = [...this.state.playlistTracks];
+    // Filter out element 
     tracks = tracks.filter(currentTrack => currentTrack.id != track.id);
     this.setState({
       playlistTracks: tracks
