@@ -3,6 +3,9 @@ import './App.css';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResults from '../SearchResults/SearchResults';
 import Playlist from '../Playlist/Playlist';
+import Spotify from '../../util/Spotify';
+
+Spotify.getAccessToken();
 
 //Stage 2
 class App extends Component {
@@ -34,7 +37,9 @@ class App extends Component {
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
     this.search = this.search.bind(this);
+    
   }
+
 
   addTrack(track){
     // Checks if the track is in the playlist before adding it
@@ -59,7 +64,6 @@ class App extends Component {
   }
 
   updatePlaylistName(name){
-    console.log(this.state.playlistName);
     var playlistName = [...this.state.playlistName];
     playlistName = name;
     this.setState({
@@ -82,7 +86,7 @@ class App extends Component {
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
-        <div class="App">
+        <div className="App">
           <SearchBar />
           <div className="App-playlist">
             <SearchResults 
