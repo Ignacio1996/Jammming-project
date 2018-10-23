@@ -6,6 +6,7 @@ import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/Spotify';
 
 Spotify.getAccessToken();
+Spotify.search('Sugar');
 
 //Stage 2
 class App extends Component {
@@ -79,7 +80,11 @@ class App extends Component {
   }
 
   search(term){
-    Spotify.search(term);
+    // console.log("Searching...");
+    // console.log(term);
+    // Spotify.search(term);
+    console.log(term);
+    
   }
 
   render() {
@@ -87,7 +92,7 @@ class App extends Component {
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-          <SearchBar />
+          <SearchBar onSearch={this.search} />
           <div className="App-playlist">
             <SearchResults 
               onAdd={this.addTrack} 
