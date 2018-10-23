@@ -44,8 +44,8 @@ const Spotify = {
                         uri: track.album.uri
                     })
                 })
-                console.log(tracksArray);
-                
+            }).then(()=>{
+                return tracksArray;
             })
     }
 }

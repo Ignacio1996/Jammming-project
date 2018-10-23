@@ -6,7 +6,6 @@ import Playlist from '../Playlist/Playlist';
 import Spotify from '../../util/Spotify';
 
 Spotify.getAccessToken();
-Spotify.search('Sugar');
 
 //Stage 2
 class App extends Component {
@@ -14,13 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       searchResults: [
-        {
-          name: "All of Me",
-          artist: "John Legend",
-          album: "Love in the Future",
-          id: 1
-
-        }
+        
       ],
       playlistName: 'Running',
       playlistTracks:[
@@ -80,10 +73,13 @@ class App extends Component {
   }
 
   search(term){
-    // console.log("Searching...");
+    console.log("Searching...");
     // console.log(term);
-    // Spotify.search(term);
-    console.log(term);
+    this.setState({
+      searchResults: Spotify.search(term)
+    })
+    
+    
     
   }
 
