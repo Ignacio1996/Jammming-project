@@ -33,17 +33,21 @@ const Spotify = {
                     'Authorization': `Bearer ${accessToken}`
                 }
             })
-            .then(res => res.json())
-            .then(body => body.tracks.items.map(track =>{
-                tracksArray.push({
-                    id: track.id,
-                    name: track.name,
-                    artist: track.artists[0].name
-
+            .then(res=> res.json())
+            .then(body=>{
+                body.tracks.items.map(track =>{
+                    tracksArray.push({
+                        id: track.id,
+                        name: track.name,
+                        artist: track.artists[0].name,
+                        album: track.album.name,
+                        uri: track.album.uri
+                    })
                 })
+                console.log(tracksArray);
+                
             })
     }
-
 }
 
 
