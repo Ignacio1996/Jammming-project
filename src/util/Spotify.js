@@ -26,6 +26,7 @@ const Spotify = {
         }
     },
 
+    
     search(term) {
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
                 headers: {
@@ -34,21 +35,19 @@ const Spotify = {
             })
             .then(res=> res.json())
             .then(body=>{
-                body.tracks.items.map(track =>{
-                    tracksArray.push({
-                        id: track.id,
-                        name: track.name,
-                        artist: track.artists[0].name,
-                        album: track.album.name,
-                        uri: track.album.uri
+                console.log(body);
+                    body.tracks.items.map(track =>{
+                        return {
+                            id: track.id,
+                            name: track.name,
+                            artist: track.artists[0].name,
+                            album: track.album.name,
+                            uri: track.album.uri
+                        }
                     })
-                })
-                
-            }).then(()=>{
-                console.log(tracksArray);
-                return tracksArray;
             })
     }
+    
 }
 
 export default Spotify;

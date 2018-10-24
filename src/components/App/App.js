@@ -74,16 +74,12 @@ class App extends Component {
 
   search(term){
     console.log("Searching...");
-    const mySearch = Spotify.search(term);
-    console.log(mySearch);
-    //This gets me a promise instead of a returned array
-    
-
-    // this.setState({
-    //   searchResults: 
-    // })
-    
-    
+    Spotify.search(term).then((searchResults)=>{
+      console.log("My search:", searchResults);
+      this.setState({
+        playlistTracks: searchResults
+      })
+    })     
     
   }
 
