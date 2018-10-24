@@ -12,7 +12,6 @@ const Spotify = {
             return accessToken
         }
 
-        console.log(window.location.href);
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
         const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
 
@@ -46,11 +45,10 @@ const Spotify = {
                 })
                 
             }).then(()=>{
+                console.log(tracksArray);
                 return tracksArray;
             })
     }
 }
-
-
 
 export default Spotify;
