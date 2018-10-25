@@ -2,7 +2,6 @@ var accessToken = '';
 const clientId = 'e8cf12d7e1fe49d897dd8465ca8be552';
 const redirectUri = 'http://localhost:3000/'
 
-var tracksArray = [];
 
 const Spotify = {
 
@@ -26,34 +25,37 @@ const Spotify = {
         }
     },
 
-    
+
     search(term) {
+        var tracksArray;
+
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
                 headers: {
                     'Authorization': `Bearer ${accessToken}`
                 }
             })
-            .then(res=> res.json())
-            .then(body=>{
-                //printing the body works    
-                console.log("Returned body:", body);
-                    //returning the body doesnt work
-                    body.tracks.items.map(track =>{
-                        //this console log works for every track
-                        console.log(track);
-                        
-                        //This return is undefined, HERE IS MY PROBLEM
-                        return {
-                            id: track.id,
-                            name: track.name,
-                            artist: track.artists[0].name,
-                            album: track.album.name,
-                            uri: track.album.uri
-                        }
-                    })
+            .then(res => res.json())
+            .then(body => {
+                //returning the body doesnt work
+                body.tracks.items.map(track => {
+                    //this console log works for every track
+                    console.log(track.name);
+
+                    //This return is undefined, HERE IS MY PROBLEM
+                    var x = {
+                        id: track.id,
+                        name: track.name,
+                        artist: track.artists[0].name,
+                        album: track.album.name,
+                        uri: track.album.uri
+                    }
+
+                    console.log("Here is X: ", x);
+                    return x;
+                })
             })
     }
-    
+
 }
 
 export default Spotify;

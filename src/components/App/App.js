@@ -79,10 +79,9 @@ class App extends Component {
   }
 
   search(term){
-    console.log("Searching...");
-    Spotify.search(term).then((body)=>{
-      console.log(typeof body)
-    })   
+    //Problem is here
+    var x = Spotify.search(term).then(body=> console.log("Here is the body", body));
+    console.log("Here is the search variable", x)
     
   }
 
