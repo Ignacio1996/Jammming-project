@@ -54,6 +54,18 @@ const Spotify = {
                     
                 })
             })
+    },
+
+    savePlaylist(playlistName, tracksArray){
+        var token = accessToken;
+        var headers = {
+            'Authorizarion': `Bearer ${token}`
+        }
+        if (playlistName && tracksArray) {
+            
+        } else {
+            return;
+        }
     }
 
 }
