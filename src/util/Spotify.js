@@ -37,7 +37,7 @@ const Spotify = {
             .then(res => res.json())
             .then(body => {
                 //returning the body doesnt work
-                body.tracks.items.map(track => {
+                return body.tracks.items.map(track => {
                     //this console log works for every track
                     console.log(track.name);
 
@@ -50,8 +50,8 @@ const Spotify = {
                         uri: track.album.uri
                     }
 
-                    console.log("Here is X: ", x);
                     return x;
+                    
                 })
             })
     }

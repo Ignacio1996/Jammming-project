@@ -78,13 +78,14 @@ class App extends Component {
     })
   }
 
-  search(term){
-    //Problem is here
-    var x = Spotify.search(term).then(body=> console.log("Here is the body", body));
-    console.log("Here is the search variable", x)
-    
-  }
 
+  search(term) {
+    Spotify.search(term).then(searchResults => {
+      this.setState({searchResults: searchResults});
+    });
+  }
+  
+ 
   render() {
     return (
       <div>
