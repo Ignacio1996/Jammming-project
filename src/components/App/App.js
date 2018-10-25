@@ -13,6 +13,12 @@ class App extends Component {
     super(props);
     this.state = {
       searchResults: [
+        {
+          name: "Under the Bridge",
+          artist: "Red Hot Chilli Peppers",
+          album: "Blood, Sugar",
+          id: 2
+        }
         
       ],
       playlistName: 'Running',
@@ -74,12 +80,9 @@ class App extends Component {
 
   search(term){
     console.log("Searching...");
-    Spotify.search(term).then((searchResults)=>{
-      console.log("My search:", searchResults);
-      this.setState({
-        playlistTracks: searchResults
-      })
-    })     
+    Spotify.search(term).then((body)=>{
+      console.log(typeof body)
+    })   
     
   }
 

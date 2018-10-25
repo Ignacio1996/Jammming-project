@@ -35,8 +35,14 @@ const Spotify = {
             })
             .then(res=> res.json())
             .then(body=>{
-                console.log(body);
+                //printing the body works    
+                console.log("Returned body:", body);
+                    //returning the body doesnt work
                     body.tracks.items.map(track =>{
+                        //this console log works for every track
+                        console.log(track);
+                        
+                        //This return is undefined, HERE IS MY PROBLEM
                         return {
                             id: track.id,
                             name: track.name,
